@@ -11,5 +11,6 @@ if [ "$bluetooth_status" -eq 0 ]; then
 	echo "Not Connected"
 else
 	# If Bluetooth is turned on
-	system_profiler SPBluetoothDataType | grep -A 7 "$airpods_name" | awk '/Left Battery Level/{print $4} /Right Battery Level/{print $4}' ORS=' ' && system_profiler SPBluetoothDataType | grep -A 7 "$airpods_name" | awk '/Case Battery Level/{print "("$4 ")"}'| tail -n1
+	system_profiler SPBluetoothDataType | grep -A 7 "$airpods_name" | awk '/Left Battery Level/{print $4} /Right Battery Level/{print $4}' ORS=' ' \
+	&& system_profiler SPBluetoothDataType | grep -A 7 "$airpods_name" | awk '/Case Battery Level/{print "("$4 ")"}'| tail -n1
 fi
